@@ -20,6 +20,7 @@
 - [Quick Start](#quick-start)
 - [API Reference](#api-reference)
 - [Installation](#installation)
+- [Documentation](#documentation)
 - [Platform Support](#platform-support)
 - [License](#license)
 
@@ -122,6 +123,17 @@ Download the latest JARs directly to add them to your classpath:
 
 1. 📦 **[fastmemory-0.1.0.jar](https://github.com/andrestubbe/FastMemory/releases/download/0.1.0/fastmemory-0.1.0.jar)** (The Core Library)
 2. ⚙️ **[fastcore-0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/0.1.0/fastcore-0.1.0.jar)** (The Mandatory Native Loader)
+
+---
+
+## Documentation
+
+* **[Description.md](docs/Description.md)**: Architectural overview and core module capabilities.
+* **[COMPILE.md](docs/COMPILE.md)**: Full compilation guide (MSVC C++17 build chain + JNI Setup).
+* **[REFERENCE.md](docs/REFERENCE.md)**: Full API descriptions and technical method specifications.
+* **[PHILOSOPHY.md](docs/PHILOSOPHY.md)**: Engineering rationale for zero-allocation performance.
+* **[ROADMAP.md](docs/ROADMAP.md)**: Future milestones and planned features.
+* **[CHANGELOG.md](docs/CHANGELOG.md)**: Version history and release notes.
 
 ---
 
