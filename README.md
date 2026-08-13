@@ -126,6 +126,21 @@ Download the latest JARs directly to add them to your classpath:
 
 ---
 
+## Technical Examples & Benchmarks
+
+See the `examples/` directory for interactive technical implementations and official JMH benchmarks:
+
+| Benchmark Case | Description | Java Example | JMH Benchmark |
+|---|---|---|---|
+| **32-Byte Aligned RAM** | 32-byte SIMD-aligned off-heap allocation vs Heap arrays | [Demo.java](examples/Demo.java) | [JMH_Memory.java](examples/src/main/java/fastmemory/benchmark/JMH_Memory.java) |
+
+### Run JMH Benchmarks via Script
+```cmd
+run-benchmark.bat
+```
+
+---
+
 ## Documentation
 
 * **[Description.md](docs/Description.md)**: Architectural overview and core module capabilities.
@@ -144,6 +159,15 @@ Download the latest JARs directly to add them to your classpath:
 | Windows 10/11 (x64) | ✅ Fully Supported |
 | Linux (x64 / ARM64) | 🚧 Planned |
 | macOS (Apple Silicon) | 🚧 Planned |
+
+---
+
+## Related Projects
+
+- [FastPointer](https://github.com/andrestubbe/FastPointer) — Zero-overhead native address arithmetic
+- [FastSIMD](https://github.com/andrestubbe/FastSIMD) — Hardware vector acceleration engine (AVX2, AVX-512, NEON)
+- [FastSharedMemory](https://github.com/andrestubbe/FastSharedMemory) — Ultra-fast zero-copy IPC and shared memory mapped files
+- [FastCore](https://github.com/andrestubbe/FastCore) — Native JNI loader for FastJava libraries
 
 ---
 
