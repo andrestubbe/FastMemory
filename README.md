@@ -12,12 +12,42 @@
 
 `FastMemory` provides zero-GC off-heap memory management for the FastJava ecosystem. It allocates 32-byte and 64-byte aligned native RAM buffers for AVX2/AVX-512 execution and prevents Windows OS paging via physical RAM page locking (`VirtualLock`).
 
+[![Showcase](docs/screenshot.png)](https://youtu.be/i2nzaa794J0)
+
+---
+
+## Quick Start
+
+```java
+import fastmemory.*;
+import fastpointer.Pointer;
+
+public class Demo {
+    public static void main(String[] args) {
+        // Allocate 1024 bytes of 32-byte SIMD-aligned native memory
+        Memory memory = Memory.allocateAligned(1024, 32);
+
+        // Lock physical RAM pages to prevent OS swap
+        memory.lockPages();
+
+        // Get fast Pointer wrapper for address arithmetic
+        Pointer ptr = memory.pointer();
+        ptr.setInt(0, 42);
+
+        System.out.println("Allocated 32-byte aligned address: " + ptr);
+        System.out.println("Value at offset 0: " + ptr.getInt(0));
+
+        // Free memory
+        memory.free();
+    }
+}
+```
+
 ---
 
 ## Table of Contents
 
 - [Key Features](#key-features)
-- [Quick Start](#quick-start)
 - [API Reference](#api-reference)
 - [Installation](#installation)
 - [Documentation](#documentation)
@@ -25,8 +55,6 @@
 - [License](#license)
 
 ---
-
-## Quick Start
 
 ```java
 import fastmemory.*;
@@ -97,6 +125,13 @@ Add the JitPack repository and the mandatory `FastCore` dependency to your `pom.
         <version>0.1.0</version>
     </dependency>
 
+    <!-- FastPointer (Required for pointer operations) -->
+    <dependency>
+        <groupId>com.github.andrestubbe</groupId>
+        <artifactId>FastPointer</artifactId>
+        <version>0.1.0</version>
+    </dependency>
+
     <!-- FastCore (Mandatory Native Loader) -->
     <dependency>
         <groupId>com.github.andrestubbe</groupId>
@@ -114,6 +149,7 @@ repositories {
 
 dependencies {
     implementation 'com.github.andrestubbe:FastMemory:0.1.0'
+    implementation 'com.github.andrestubbe:FastPointer:0.1.0'
     implementation 'com.github.andrestubbe:FastCore:0.1.0'
 }
 ```
@@ -122,7 +158,8 @@ dependencies {
 Download the latest JARs directly to add them to your classpath:
 
 1. 📦 **[fastmemory-0.1.0.jar](https://github.com/andrestubbe/FastMemory/releases/download/0.1.0/fastmemory-0.1.0.jar)** (The Core Library)
-2. ⚙️ **[fastcore-0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/0.1.0/fastcore-0.1.0.jar)** (The Mandatory Native Loader)
+2. 🎯 **[fastpointer-0.1.0.jar](https://github.com/andrestubbe/FastPointer/releases/download/0.1.0/fastpointer-0.1.0.jar)** (Required for pointer operations)
+3. ⚙️ **[fastcore-0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/0.1.0/fastcore-0.1.0.jar)** (The Mandatory Native Loader)
 
 ---
 

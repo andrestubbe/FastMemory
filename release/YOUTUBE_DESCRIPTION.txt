@@ -1,22 +1,24 @@
 TITLE:
-FastMemory: SIMD-Aligned Off-Heap Memory Manager for Java 🚀
+FastMemory: 4K Video Frame Buffer SIMD-Aligned Memory vs Java Heap 🚀
 
 DESCRIPTION:
-Demonstrating FastMemory, a high-performance native memory allocator for Java. Features 32-byte SIMD vector alignment (`_mm256`), physical page locking (`VirtualLock`), and zero-copy byte buffer bridging without JVM GC overhead.
+Demonstrating FastMemory, a SIMD-aligned off-heap memory allocator for Java. This performance comparison shows 4K video frame buffer processing (3840x2160 pixels, 31 MB) using 32-byte aligned native memory with page locking versus traditional Java heap arrays.
 
 TECHNICAL HIGHLIGHTS:
-- 32-Byte SIMD Alignment: Uses posix_memalign / VirtualAlloc for AVX2 and AVX-512 register efficiency.
-- Physical Page Locking: Locks memory pages into RAM using VirtualLock / mlock to prevent OS swap paging.
-- AutoCloseable Management: Deterministic native memory deallocation avoiding memory leaks.
-- FastPointer Integration: Directly returns 64-bit native primitive address wrappers.
+- 32-Byte SIMD Alignment: AVX2/AVX-512 vector operations without alignment penalties
+- Physical Page Locking: VirtualLock prevents OS swap for real-time video processing
+- Zero GC Overhead: Off-heap memory eliminates garbage collection pauses
+- FastPointer Integration: Direct 64-bit address arithmetic for pixel manipulation
 
 RESULTS:
-- Aligned RAM Allocation: Sub-microsecond allocation speed
-- Zero GC Overhead: Off-heap memory storage with physical page locking
+- Write Speedup: 1.1x faster than Java heap arrays (21ms vs 23ms)
+- SIMD-Ready: 32-byte alignment optimal for AVX2 vector instructions
+- Page-Locked: Physical RAM residency prevents swap latency
+- Memory Type: Off-heap native vs heap allocation
 
-FASTJAVA SYSTEM REPOSITORIES:
-1. FastPointer: https://github.com/andrestubbe/FastPointer
-2. FastMemory: https://github.com/andrestubbe/FastMemory
+FASTJAVA CORE REPOSITORIES:
+1. FastMemory: https://github.com/andrestubbe/FastMemory
+2. FastPointer: https://github.com/andrestubbe/FastPointer
 3. FastSIMD: https://github.com/andrestubbe/FastSIMD
 4. FastSharedMemory: https://github.com/andrestubbe/FastSharedMemory
 
@@ -26,4 +28,4 @@ Part of the FastJava Ecosystem — Making the JVM faster.
 Made with ⚡ by Andre Stubbe
 
 TAGS:
-Java, FastJava, FastMemory, SIMD, Off-Heap, AVX2, Native Memory, Memory Alignment, C++, VirtualLock
+Java, FastJava, FastMemory, SIMD, Off-Heap, AVX2, Video Processing, Memory Alignment, VirtualLock, Page Locking
