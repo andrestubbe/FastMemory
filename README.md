@@ -1,10 +1,9 @@
 # FastMemory 0.1.0 [ALPHA] — Native Off-Heap Memory Allocation & RAM Control
 
-[![Status](https://img.shields.io/badge/status-0.1.0-brightgreen.svg)](https://github.com/andrestubbe/FastMemory/releases/tag/0.1.0)
+[![Status](https://img.shields.io/badge/status-ALPHA-orange.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Java](https://img.shields.io/badge/Java-17+-blue.svg)](https://www.java.com)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010+-lightgrey.svg)]()
-[![JitPack](https://img.shields.io/badge/JitPack-ready-green.svg)](https://jitpack.io/#andrestubbe)
 
 ---
 
@@ -53,33 +52,6 @@ public class Demo {
 - [Documentation](#documentation)
 - [Platform Support](#platform-support)
 - [License](#license)
-
----
-
-```java
-import fastmemory.*;
-import fastpointer.Pointer;
-
-public class Demo {
-    public static void main(String[] args) {
-        // Allocate 1024 bytes of 32-byte SIMD-aligned native memory
-        Memory memory = Memory.allocateAligned(1024, 32);
-
-        // Lock physical RAM pages to prevent OS swap
-        memory.lockPages();
-
-        // Get fast Pointer wrapper for address arithmetic
-        Pointer ptr = memory.pointer();
-        ptr.setInt(0, 42);
-
-        System.out.println("Allocated 32-byte aligned address: " + ptr);
-        System.out.println("Value at offset 0: " + ptr.getInt(0));
-
-        // Free memory
-        memory.free();
-    }
-}
-```
 
 ---
 
