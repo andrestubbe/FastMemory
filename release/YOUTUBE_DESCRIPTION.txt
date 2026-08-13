@@ -1,0 +1,29 @@
+TITLE:
+FastMemory: SIMD-Aligned Off-Heap Memory Manager for Java 🚀
+
+DESCRIPTION:
+Demonstrating FastMemory, a high-performance native memory allocator for Java. Features 32-byte SIMD vector alignment (`_mm256`), physical page locking (`VirtualLock`), and zero-copy byte buffer bridging without JVM GC overhead.
+
+TECHNICAL HIGHLIGHTS:
+- 32-Byte SIMD Alignment: Uses posix_memalign / VirtualAlloc for AVX2 and AVX-512 register efficiency.
+- Physical Page Locking: Locks memory pages into RAM using VirtualLock / mlock to prevent OS swap paging.
+- AutoCloseable Management: Deterministic native memory deallocation avoiding memory leaks.
+- FastPointer Integration: Directly returns 64-bit native primitive address wrappers.
+
+RESULTS:
+- Aligned RAM Allocation: Sub-microsecond allocation speed
+- Zero GC Overhead: Off-heap memory storage with physical page locking
+
+FASTJAVA SYSTEM REPOSITORIES:
+1. FastPointer: https://github.com/andrestubbe/FastPointer
+2. FastMemory: https://github.com/andrestubbe/FastMemory
+3. FastSIMD: https://github.com/andrestubbe/FastSIMD
+4. FastSharedMemory: https://github.com/andrestubbe/FastSharedMemory
+
+Ecosystem Overview: https://github.com/andrestubbe/FastJava
+
+Part of the FastJava Ecosystem — Making the JVM faster.
+Made with ⚡ by Andre Stubbe
+
+TAGS:
+Java, FastJava, FastMemory, SIMD, Off-Heap, AVX2, Native Memory, Memory Alignment, C++, VirtualLock
