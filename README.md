@@ -1,4 +1,4 @@
-# FastMemory 0.1.1 [ALPHA] — Native Off-Heap Memory Allocation & RAM Control
+# FastMemory 0.1.1 [ALPHA-2026-08] — Native Off-Heap Memory Allocation & RAM Control
 
 [![Status](https://img.shields.io/badge/status-0.1.1-brightgreen.svg)](https://github.com/andrestubbe/FastMemory/releases/tag/0.1.1)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
