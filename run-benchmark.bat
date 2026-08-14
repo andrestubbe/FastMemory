@@ -1,21 +1,18 @@
 @echo off
-echo Building Main Project (FastMemory)...
-call mvn clean install -DskipTests -q
-if %ERRORLEVEL% NEQ 0 (
-    echo Main build failed.
-    exit /b %ERRORLEVEL%
-)
+chcp 65001 >nul
+cd /d "%~dp0"
 
-echo Building Benchmark Uber-JAR...
-cd examples
+echo ⚡ Building Main Project (FastMemory)...
+call mvn install -DskipTests -q
+if %ERRORLEVEL% NEQ 0 ( echo ❌ Main build failed. & pause & exit /b %ERRORLEVEL% )
+
+echo 🛠 Building Benchmark Uber-JAR...
+cd examples\Benchmark
 call mvn clean package -DskipTests -q
-if %ERRORLEVEL% NEQ 0 (
-    echo Benchmark build failed.
-    cd ..
-    exit /b %ERRORLEVEL%
-)
+if %ERRORLEVEL% NEQ 0 ( echo ❌ Benchmark build failed. & pause & exit /b %ERRORLEVEL% )
 
-echo Running Official JMH Benchmarks...
-java --add-opens=java.base/jdk.internal.misc=ALL-UNNAMED --add-exports=java.base/jdk.internal.misc=ALL-UNNAMED -jar target\benchmarks.jar -jvmArgs "-Xmx4g"
+echo 🚀 Running Official JMH Benchmarks for FastMemory...
+java -Djmh.ignoreLock=true -jar target\benchmarks.jar
 
-cd ..
+cd ..\..
+pause

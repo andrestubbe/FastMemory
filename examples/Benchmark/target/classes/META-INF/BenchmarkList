@@ -1,0 +1,2 @@
+JMH S 31 fastmemory.benchmark.JMH_Memory S 88 fastmemory.benchmark.jmh_generated.JMH_Memory_testAlignedMemoryAllocationAndFree_jmhTest S 34 testAlignedMemoryAllocationAndFree S 10 Throughput E A 1 1 1 E I 1 2 T 3 1 s E I 1 3 T 3 1 s E I 1 1 E E E E E E U 12 MILLISECONDS E E 
+JMH S 31 fastmemory.benchmark.JMH_Memory S 77 fastmemory.benchmark.jmh_generated.JMH_Memory_testMemoryAddressAccess_jmhTest S 23 testMemoryAddressAccess S 10 Throughput E A 1 1 1 E I 1 2 T 3 1 s E I 1 3 T 3 1 s E I 1 1 E E E E E E U 12 MILLISECONDS E E 

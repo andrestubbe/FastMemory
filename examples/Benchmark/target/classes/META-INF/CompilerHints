@@ -1,0 +1,9 @@
+dontinline,*.*_all_jmhStub
+dontinline,*.*_avgt_jmhStub
+dontinline,*.*_sample_jmhStub
+dontinline,*.*_ss_jmhStub
+dontinline,*.*_thrpt_jmhStub
+inline,fastmemory/benchmark/JMH_Memory.setup
+inline,fastmemory/benchmark/JMH_Memory.tearDown
+inline,fastmemory/benchmark/JMH_Memory.testAlignedMemoryAllocationAndFree
+inline,fastmemory/benchmark/JMH_Memory.testMemoryAddressAccess
