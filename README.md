@@ -153,12 +153,10 @@ run-benchmark.bat
 
 ## Documentation
 
-* **[COMPILE.md](docs/COMPILE.md)**: Full compilation guide (MSVC C++17 build chain + JNI Setup).
-* **[REFERENCE.md](docs/REFERENCE.md)**: Full API descriptions and technical method specifications.
-* **[PHILOSOPHY.md](docs/PHILOSOPHY.md)**: Engineering rationale for zero-allocation performance.
-* **[ROADMAP.md](docs/ROADMAP.md)**: Future milestones and planned features.
-* **[CHANGELOG.md](docs/CHANGELOG.md)**: Version history and release notes.
-
+* 🗺️ **[ROADMAP.md](docs/ROADMAP.md)** — Feature roadmap and future release plans.
+* 📖 **[PHILOSOPHY.md](docs/PHILOSOPHY.md)** — Architectural principles and zero-copy contracts.
+* 🛠️ **[COMPILE.md](docs/COMPILE.md)** — Native C++ compilation guide using MSVC.
+* 📚 **[REFERENCE.md](docs/REFERENCE.md)** — Detailed API reference and specifications.
 ---
 
 ## Platform Support
