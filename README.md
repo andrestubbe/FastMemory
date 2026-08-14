@@ -95,21 +95,21 @@ Add the JitPack repository and the mandatory `FastCore` dependency to your `pom.
     <dependency>
         <groupId>com.github.andrestubbe</groupId>
         <artifactId>FastMemory</artifactId>
-        <version>0.1.0</version>
+        <version>0.1.1</version>
     </dependency>
 
     <!-- FastPointer (Required for pointer operations) -->
     <dependency>
         <groupId>com.github.andrestubbe</groupId>
         <artifactId>FastPointer</artifactId>
-        <version>0.1.0</version>
+        <version>0.1.1</version>
     </dependency>
 
     <!-- FastCore (Mandatory Native Loader) -->
     <dependency>
         <groupId>com.github.andrestubbe</groupId>
         <artifactId>FastCore</artifactId>
-        <version>0.1.0</version>
+        <version>0.1.1</version>
     </dependency>
 </dependencies>
 ```
@@ -121,7 +121,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.andrestubbe:FastMemory:0.1.0'
+    implementation 'com.github.andrestubbe:FastMemory:0.1.1'
     implementation 'com.github.andrestubbe:FastPointer:0.1.0'
     implementation 'com.github.andrestubbe:FastCore:0.1.0'
 }

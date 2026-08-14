@@ -12,11 +12,11 @@ FastMemory 0.1.0 - SIMD-Aligned Off-Heap Memory Allocation
 <dependency>
     <groupId>com.github.andrestubbe</groupId>
     <artifactId>FastMemory</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 </dependency>
 ```
 
 ### Gradle
 ```groovy
-implementation 'com.github.andrestubbe:FastMemory:0.1.0'
+implementation 'com.github.andrestubbe:FastMemory:0.1.1'
 ```
