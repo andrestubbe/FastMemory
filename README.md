@@ -153,7 +153,6 @@ run-benchmark.bat
 
 ## Documentation
 
-* **[Description.md](docs/Description.md)**: Architectural overview and core module capabilities.
 * **[COMPILE.md](docs/COMPILE.md)**: Full compilation guide (MSVC C++17 build chain + JNI Setup).
 * **[REFERENCE.md](docs/REFERENCE.md)**: Full API descriptions and technical method specifications.
 * **[PHILOSOPHY.md](docs/PHILOSOPHY.md)**: Engineering rationale for zero-allocation performance.
