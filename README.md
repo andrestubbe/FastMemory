@@ -47,14 +47,26 @@ public class Demo {
 
 ## Table of Contents
 
+- [Why FastMemory?](#why-fastmemory)
 - [Key Features](#key-features)
 - [Real-World Use Cases](#real-world-use-cases)
 - [Performance Benchmarks](#performance-benchmarks)
+- [FastJava Native Memory Substrate](#fastjava-native-memory--hardware-substrate)
 - [API Reference](#api-reference)
 - [Installation](#installation)
 - [Documentation](#documentation)
 - [Platform Support](#platform-support)
 - [License](#license)
+
+---
+
+## Why FastMemory?
+
+Standard Java off-heap mechanisms (`ByteBuffer.allocateDirect` or Java 22 `Arena.allocateDirect`) do not guarantee 32-byte or 64-byte boundary alignment required for maximum AVX2 / AVX-512 SIMD vector performance. Furthermore, they offer no native OS page-locking capabilities to prevent physical RAM swapping. `FastMemory` provides:
+
+- **32-Byte & 64-Byte Hardware SIMD Alignment** — Guarantees hardware-aligned off-heap memory addresses, eliminating unaligned memory access penalties during SIMD vector sweeps (`FastSIMD`, `FastBytes`).
+- **OS Physical RAM Page Locking (`VirtualLock`)** — Pins physical memory pages to RAM, preventing Windows OS swapping and eliminating random disk-page latencies in real-time applications.
+- **Zero-GC Off-Heap Engine** — Manages gigabytes of off-heap frame, audio, and tensor buffers completely outside the JVM Garbage Collector.
 
 ---
 
@@ -84,7 +96,18 @@ Benchmark                                    Mode  Cnt       Score   Error  Unit
 JMH_FastMemory.benchmarkAlignedAllocation   thrpt    2 12450000.120          ops/s
 ```
 
-> **12.45 Million Allocations per Second**: `FastMemory` provisions 32-byte SIMD-aligned off-heap buffers with zero Garbage Collector pause risk.
+---
+
+## FastJava Native Memory & Hardware Substrate
+
+`FastMemory` is part of the core **FastJava Low-Level Native Memory Substrate**, designed to grant Java applications raw C++ speed and direct hardware access:
+
+| Substrate Module | Role & Key Capability |
+| :--- | :--- |
+| **`FastMemory`** | **Off-Heap Direct Allocator** — High-speed 32-byte / 64-byte SIMD aligned off-heap memory management and physical RAM page locking (`VirtualLock`). |
+| **`FastPointer`** | **64-Bit Native Pointer Abstraction** — Zero-allocation address arithmetic, handle casting (`HWND`, `HANDLE`), and off-heap struct navigation. |
+| **`FastSIMD`** | **AVX2 / Vector Acceleration** — 256-bit SIMD hardware vectorization for memory scanning, math operations, and array sweeps. |
+| **`FastSharedMemory`** | **Zero-Copy IPC Substrate** — Ultra-fast inter-process shared memory buffers between Java processes and native C++ services. |
 
 ---
 
