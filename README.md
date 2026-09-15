@@ -48,11 +48,12 @@ public class Demo {
 ## Table of Contents
 
 - [Why FastMemory?](#why-fastmemory)
+- [Quick Start](#quick-start)
 - [Key Features](#key-features)
 - [Real-World Use Cases](#real-world-use-cases)
 - [Performance Benchmarks](#performance-benchmarks)
 - [FastJava Native Memory Substrate](#fastjava-native-memory--hardware-substrate)
-- [API Reference](#api-reference)
+- [API Quick Reference](#api-quick-reference)
 - [Installation](#installation)
 - [Documentation](#documentation)
 - [Platform Support](#platform-support)
@@ -111,15 +112,20 @@ JMH_FastMemory.benchmarkAlignedAllocation   thrpt    2 12450000.120          ops
 
 ---
 
-## API Reference
+## API Quick Reference
 
-### `Memory`
-- `Memory.allocate(long bytes)`: Allocates default 32-byte aligned native off-heap memory.
-- `Memory.allocateAligned(long bytes, int alignment)`: Allocates memory aligned to specified boundary (16, 32, 64 bytes).
-- `pointer()`: Returns a `Pointer` instance pointing to the allocated address.
-- `address()`: Returns the primitive `long` memory address.
-- `lockPages()` / `unlockPages()`: Locks or unlocks physical RAM pages via `VirtualLock`.
-- `free()`: Releases the allocated native memory back to the OS.
+| Method | Description | Docs |
+|---|---|---|
+| `Memory.allocate(long bytes)` | Allocates default 32-byte SIMD-aligned native off-heap memory (AVX2). | [Reference](docs/REFERENCE.md) |
+| `Memory.allocateAligned(bytes, alignment)` | Allocates native memory aligned to custom boundary (16, 32, 64 bytes). | [Reference](docs/REFERENCE.md) |
+| `pointer()` | Returns a `Pointer` instance pointing to the allocated base address. | [Reference](docs/REFERENCE.md) |
+| `address()` | Returns the underlying primitive 64-bit `long` memory address. | [Reference](docs/REFERENCE.md) |
+| `capacity()` | Returns the allocation capacity in bytes. | [Reference](docs/REFERENCE.md) |
+| `alignment()` | Returns the byte alignment boundary (e.g. 32, 64). | [Reference](docs/REFERENCE.md) |
+| `lockPages()` | Locks physical RAM pages into working set via Win32 `VirtualLock`. | [Reference](docs/REFERENCE.md) |
+| `unlockPages()` | Unlocks physical RAM pages via Win32 `VirtualUnlock`. | [Reference](docs/REFERENCE.md) |
+| `isLocked()` | Returns `true` if memory pages are actively locked in physical RAM. | [Reference](docs/REFERENCE.md) |
+| `free()` / `close()` | Releases allocated native off-heap memory back to the OS. | [Reference](docs/REFERENCE.md) |
 
 ---
 
