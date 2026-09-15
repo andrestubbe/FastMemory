@@ -54,8 +54,8 @@ public class Demo {
 - [Performance Benchmarks](#performance-benchmarks)
 - [FastJava Native Memory Substrate](#fastjava-native-memory--hardware-substrate)
 - [API Quick Reference](#api-quick-reference)
-- [Installation](#installation)
 - [Technical Demos & Benchmarks](#technical-demos--benchmarks)
+- [Installation](#installation)
 - [Documentation](#documentation)
 - [Platform Support](#platform-support)
 - [License](#license)
@@ -130,6 +130,15 @@ JMH_FastMemory.benchmarkAlignedAllocation   thrpt    2 12450000.120          ops
 
 ---
 
+## Technical Demos & Benchmarks
+
+| Case | Java Example | Launcher | Description |
+|---|---|---|---|
+| **32-Byte Aligned RAM & Page Locking** | [Demo.java](examples/Demo.java) | `run-demo.bat` | End-to-end 4K video buffer simulation comparing SIMD-aligned, page-locked off-heap memory against standard JVM heap arrays. |
+| **JMH Microbenchmark Suite** | [Benchmark.java](examples/Benchmark/src/main/java/fastmemory/benchmark/Benchmark.java) | `run-benchmark.bat` | OpenJDK JMH throughput & latency test suite for SIMD-aligned allocation and memory address access. |
+
+---
+
 ## Installation
 
 ### Option 1: Maven (Recommended)
@@ -186,15 +195,6 @@ Download the latest JARs directly to add them to your classpath:
 1. 📦 **[fastmemory-0.1.0.jar](https://github.com/andrestubbe/FastMemory/releases/download/0.1.0/fastmemory-0.1.0.jar)** (The Core Library)
 2. 🎯 **[fastpointer-0.1.0.jar](https://github.com/andrestubbe/FastPointer/releases/download/0.1.0/fastpointer-0.1.0.jar)** (Required for pointer operations)
 3. ⚙️ **[fastcore-0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/0.1.0/fastcore-0.1.0.jar)** (The Mandatory Native Loader)
-
----
-
-## Technical Demos & Benchmarks
-
-| Case | Java Example | Launcher | Description |
-|---|---|---|---|
-| **32-Byte Aligned RAM & Page Locking** | [Demo.java](examples/Demo.java) | `run-demo.bat` | End-to-end 4K video buffer simulation comparing SIMD-aligned, page-locked off-heap memory against standard JVM heap arrays. |
-| **JMH Microbenchmark Suite** | [Benchmark.java](examples/Benchmark/src/main/java/fastmemory/benchmark/Benchmark.java) | `run-benchmark.bat` | OpenJDK JMH throughput & latency test suite for SIMD-aligned allocation and memory address access. |
 
 ---
 
