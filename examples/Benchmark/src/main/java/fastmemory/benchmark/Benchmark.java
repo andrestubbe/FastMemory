@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 @Fork(1)
 @Warmup(iterations = 2, time = 1)
 @Measurement(iterations = 3, time = 1)
-public class JMH_Memory {
+public class Benchmark {
 
     private Memory mem;
 
@@ -24,13 +24,13 @@ public class JMH_Memory {
         mem.free();
     }
 
-    @Benchmark
+    @org.openjdk.jmh.annotations.Benchmark
     public void testAlignedMemoryAllocationAndFree() {
         Memory m = Memory.allocate(4096);
         m.free();
     }
 
-    @Benchmark
+    @org.openjdk.jmh.annotations.Benchmark
     public long testMemoryAddressAccess() {
         return mem.address();
     }

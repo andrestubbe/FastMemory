@@ -55,6 +55,7 @@ public class Demo {
 - [FastJava Native Memory Substrate](#fastjava-native-memory--hardware-substrate)
 - [API Quick Reference](#api-quick-reference)
 - [Installation](#installation)
+- [Technical Demos & Benchmarks](#technical-demos--benchmarks)
 - [Documentation](#documentation)
 - [Platform Support](#platform-support)
 - [License](#license)
@@ -188,18 +189,12 @@ Download the latest JARs directly to add them to your classpath:
 
 ---
 
-## Technical Examples & Benchmarks
+## Technical Demos & Benchmarks
 
-See the `examples/` directory for interactive technical implementations and official JMH benchmarks:
-
-| Benchmark Case | Description | Java Example | JMH Benchmark |
+| Case | Java Example | Launcher | Description |
 |---|---|---|---|
-| **32-Byte Aligned RAM** | 32-byte SIMD-aligned off-heap allocation vs Heap arrays | [Demo.java](examples/Demo.java) | [JMH_Memory.java](examples/src/main/java/fastmemory/benchmark/JMH_Memory.java) |
-
-### Run JMH Benchmarks via Script
-```cmd
-run-benchmark.bat
-```
+| **32-Byte Aligned RAM & Page Locking** | [Demo.java](examples/Demo.java) | `run-demo.bat` | End-to-end 4K video buffer simulation comparing SIMD-aligned, page-locked off-heap memory against standard JVM heap arrays. |
+| **JMH Microbenchmark Suite** | [Benchmark.java](examples/Benchmark/src/main/java/fastmemory/benchmark/Benchmark.java) | `run-benchmark.bat` | OpenJDK JMH throughput & latency test suite for SIMD-aligned allocation and memory address access. |
 
 ---
 

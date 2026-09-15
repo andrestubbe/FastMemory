@@ -42,11 +42,6 @@
         </dependency>
         <dependency>
             <groupId>com.github.andrestubbe</groupId>
-            <artifactId>FastMemory</artifactId>
-            <version>0.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.andrestubbe</groupId>
             <artifactId>FastPointer</artifactId>
             <version>0.1.1</version>
         </dependency>
