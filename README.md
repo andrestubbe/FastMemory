@@ -52,7 +52,6 @@ public class Demo {
 - [Key Features](#key-features)
 - [Real-World Use Cases](#real-world-use-cases)
 - [Performance Benchmarks](#performance-benchmarks)
-- [FastJava Native Memory Substrate](#fastjava-native-memory--hardware-substrate)
 - [API Quick Reference](#api-quick-reference)
 - [Technical Demos & Benchmarks](#technical-demos--benchmarks)
 - [Installation](#installation)
@@ -97,19 +96,6 @@ Standard Java off-heap mechanisms (`ByteBuffer.allocateDirect` or Java 22 `Arena
 Benchmark                                    Mode  Cnt       Score   Error  Units
 JMH_FastMemory.benchmarkAlignedAllocation   thrpt    2 12450000.120          ops/s
 ```
-
----
-
-## FastJava Native Memory & Hardware Substrate
-
-`FastMemory` is part of the core **FastJava Low-Level Native Memory Substrate**, designed to grant Java applications raw C++ speed and direct hardware access:
-
-| Substrate Module | Role & Key Capability |
-| :--- | :--- |
-| **[`FastMemory`](https://github.com/andrestubbe/FastMemory)** | **Off-Heap Direct Allocator** — High-speed 32-byte / 64-byte SIMD aligned off-heap memory management and physical RAM page locking (`VirtualLock`). |
-| **[`FastPointer`](https://github.com/andrestubbe/FastPointer)** | **64-Bit Native Pointer Abstraction** — Zero-allocation address arithmetic, handle casting (`HWND`, `HANDLE`), and off-heap struct navigation. |
-| **[`FastSIMD`](https://github.com/andrestubbe/FastSIMD)** | **AVX2 / Vector Acceleration** — 256-bit SIMD hardware vectorization for memory scanning, math operations, and array sweeps. |
-| **[`FastSharedMemory`](https://github.com/andrestubbe/FastSharedMemory)** | **Zero-Copy IPC Substrate** — Ultra-fast inter-process shared memory buffers between Java processes and native C++ services. |
 
 ---
 
