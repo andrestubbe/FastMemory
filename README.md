@@ -69,6 +69,17 @@ Standard Java off-heap mechanisms (`ByteBuffer.allocateDirect` or Java 22 `Arena
 - **OS Physical RAM Page Locking (`VirtualLock`)** — Pins physical memory pages to RAM, preventing Windows OS swapping and eliminating random disk-page latencies in real-time applications.
 - **Zero-GC Off-Heap Engine** — Manages gigabytes of off-heap frame, audio, and tensor buffers completely outside the JVM Garbage Collector.
 
+FastMemory gives low-level C++ control over memory layout and OS paging policies:
+
+| Feature | Java `ByteBuffer.allocateDirect` | Java 22 `Arena.allocate` | FastMemory |
+|:---|:---|:---|:---|
+| **SIMD Boundary Alignment** | 8-Byte default only | Platform dependent | **Strict 32-Byte & 64-Byte (`_aligned_malloc`)** |
+| **OS Page Locking (`VirtualLock`)**| Unsupported | Unsupported | **Physical RAM Pinning (Anti-Swap)** |
+| **Garbage Collector Impact** | PhantomReference cleanup | Scoped arena GC | **0 JVM Heap Pressure (Explicit `free`)** |
+| **AVX-512 Cache Line Penalty**| High risk (Cache split) | Variable | **Zero Penalty (Guaranteed Alignment)** |
+| **Address Arithmetic** | Unsafe / Buffer index | MemorySegment offset | **Direct 64-bit Address via FastPointer** |
+| **Dependencies** | JDK standard lib | JDK Preview / Foreign API | **Pure Java 17+ backed by FastCore** |
+
 ---
 
 ## Key Features
